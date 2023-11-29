@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:butterfly_classification/description.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tflite_v2/tflite_v2.dart';
@@ -91,6 +92,46 @@ class _HomePageState extends State<HomePage> {
                                 color: Colors.white,
                               ),
                             ),
+                            Container(
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 20,
+                                vertical: 10,
+                              ),
+                              width: size.width,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Colors.blueGrey,
+                              ),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return DescriptionPage(
+                                          species: _predictions[0]['label']
+                                              .toString()
+                                              .substring(2),
+                                          file: _file!,
+                                        );
+                                      },
+                                    ),
+                                  );
+                                },
+                                child: const Center(
+                                  child: Text(
+                                    'Description',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
                           ],
                         )
                       : const Text(
@@ -102,36 +143,29 @@ class _HomePageState extends State<HomePage> {
                         ),
                 ],
               ),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Material(
-                elevation: 3,
+            Container(
+              margin: const EdgeInsets.symmetric(
+                horizontal: 20,
+                vertical: 10,
+              ),
+              width: size.width,
+              height: 50,
+              decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                child: Container(
-                  width: size.width,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.blueGrey,
-                  ),
-                  child: Material(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.transparent,
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () {
-                        showPictureDialog();
-                      },
-                      child: const Center(
-                        child: Text(
-                          'Get Image',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
+                color: Colors.blueGrey,
+              ),
+              child: InkWell(
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () {
+                  showPictureDialog();
+                },
+                child: const Center(
+                  child: Text(
+                    'Get Image',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),

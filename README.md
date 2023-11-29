@@ -1,4 +1,4 @@
-# Flutter Password Vault
+# Flutter Butterfly Classifier
 
 [![GitHub issues](https://img.shields.io/github/issues/PLWEP/Butterfly-Classifier-Mobile-App?style=for-the-badge)](https://github.com/PLWEP/Butterfly-Classifier-Mobile-App/issues)
 [![GitHub forks](https://img.shields.io/github/forks/PLWEP/Butterfly-Classifier-Mobile-App?style=for-the-badge)](https://github.com/PLWEP/Butterfly-Classifier-Mobile-App/network)
